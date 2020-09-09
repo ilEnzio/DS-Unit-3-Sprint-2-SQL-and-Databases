@@ -38,3 +38,17 @@ for x in range(0, len(titan_df.columns)):
     data_tuple_list.append(temp_tup)
 
 # Now I need to learn the query
+
+# Create the table with cursor
+CREATE_TABLE = """CREATE TABLE titanic_passengers(
+  Survived int, Pclass int, Name varchar(100),
+  Sex varchar(3), Age float, Siblings_Spouses_Aboard int,
+  Parents_Children_Aboard int, Fare float);
+"""
+
+cursor.execute(CREATE_TABLE)
+
+connection.commit()
+
+cursor.close()
+connection.close()
