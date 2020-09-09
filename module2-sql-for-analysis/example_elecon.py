@@ -38,3 +38,21 @@ print(result)
 result = cursor.fetchall()
 
 print(result)
+
+
+# Insert Data
+
+insertion_sql = """
+INSERT INTO test_table (name, data)
+		VALUES('A row name', null), 
+		('Another row, with JSON', '{ "a": 1, "b": ["dog", "cat", 42], "c" : true }'::JSONB);
+        """
+
+cursor.execute(insertion_sql)
+
+# Acually Save the TRansactions
+
+connection.commit()
+
+cursor.close()
+connection.close()
